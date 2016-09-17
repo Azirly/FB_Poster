@@ -1,5 +1,6 @@
 #Current Date
 #6/14/2016
+import time
 import os
 from selenium import webdriver
 
@@ -30,9 +31,8 @@ login_button.click();
 driver.get("https://www.facebook.com/groups/990520237699874/")
 
 
-
+#Selects the textbox within the group and sends the text
 post_box=driver.find_element_by_tag_name("textarea")
-#post_box=driver.find_element_by_xpath("//div[@id='u_0_1v']/div/div/div/div/div/div/div/div/div/div/div/div/div")
 post_box.click()
 post_box.send_keys("Testing using find_element_by_tag_name not ID.Selenium is easy.")
 
@@ -40,8 +40,13 @@ post_box.send_keys("Testing using find_element_by_tag_name not ID.Selenium is ea
 # post_box=driver.find_element_by_class_name("_1p1t")
 # post_box.send_keys("Testing using Name not ID.Selenium is easy.")
 
-post_it = driver.find_element_by_class_name("_1mf7 _4jy0 _4jy3 _4jy1 _51sy selected _42ft")
+#Timer is needed to give the browser time to respond to the input
+time.sleep(5)
+
+# post_it = driver.find_element_by_css_selector("button._1mf7._4jy0._4jy3._4jy1._51sy,selected._42ft")
+# post_it = driver.find_element_by_xpath("//*[text()='Post']")
+post_it = driver.find_element_by_xpath("//*[@data-testid='react-composer-post-button']")
+# post_it.click()
+# post_it.send_keys("Testing using find_element_by_tag_name not ID.Selenium is easy.")
 post_it.click()
-
-
 

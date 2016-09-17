@@ -7,9 +7,11 @@ able to automatically post to the group at his own convenience.
 Current Version: 9/13/2016
 
 Using Selenium:
+	
 	Good:
 		-Got Input Working
 		-Can now post into groups with relative ease
+	
 	
 	Still Need:
 		
