@@ -4,8 +4,19 @@ Goal Of FB_Poster:
 able to automatically post to the group at his own convenience.
 
 
-Current Version: 9/13/2016
+Current Version 9/21/2016
+Using Selenium:
+	
+	Good:
+		-Organize prototype
+		-Handles Buy/Sell Groups and Regular Groups
+	
+	Still Need:
+		-Eventually will need a clean UI
+		-Be able to send to multiple groups
 
+
+Current Version: 9/13/2016
 Using Selenium:
 	
 	Good:
@@ -21,7 +32,6 @@ Using Selenium:
 Will now ignore using Facebook API from now on.
 
 Current Version: 6/11/2016
-
 Using Facebook API:
 
 -Finish up program so that it only posts to open groups.
