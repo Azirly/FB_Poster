@@ -14,6 +14,8 @@ Using Selenium:
 	
 	
 	Still Need:
+		-Organize prototype
+		-Be able to send to multiple groups
 		
 
 Will now ignore using Facebook API from now on.
