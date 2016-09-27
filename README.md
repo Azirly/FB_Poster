@@ -3,6 +3,18 @@ Goal Of FB_Poster:
 --If the user has access to a FB group, then he should be 
 able to automatically post to the group at his own convenience.
 
+Current Version 9/26/2016
+Using Selenium:
+	
+	Good:
+		-Organize prototype
+		-Handles Buy/Sell Groups and Regular Groups
+	
+	Still Need:
+		-Be able to send to multiple groups
+		-Figure out the issues w/ "Latency"
+		-Be able to post onto regular groups one after another
+		-Be able to post onto Buy/Sell Groups one after another
 
 Current Version 9/21/2016
 Using Selenium:
