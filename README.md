@@ -3,6 +3,22 @@ Goal Of FB_Poster:
 --If the user has access to a FB group, then he should be 
 able to automatically post to the group at his own convenience.
 
+Current Version 11/04/2016
+Using Selenium:
+
+	Good:
+		-Finally got multiposting to work (was able to deal with stale elements)
+		-Can deal with normal groups and buy/sell groups
+		-Learning Xpath really helped.
+		
+	Still need:
+		-Clean up code
+		-Make it portable
+		-Yet to do a full-scale test.
+		
+	Note:
+		-Update chromedriver continuously as weird bugs happen with older chromes
+
 Current Version 9/26/2016
 Using Selenium:
 	
