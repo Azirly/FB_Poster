@@ -1,9 +1,9 @@
 #Current Date
-#9/17/2016
+#11/4/2016
 import time
 import os
 from selenium import webdriver
-
+from selenium.webdriver.support.ui import WebDriverWait
 ##The Initial Setup
 #Needed to get rid of the notification popups with Chrome
 chrome_options = webdriver.ChromeOptions()
@@ -38,9 +38,22 @@ facebook_groups = {
     # 'Class 2017': 'https://www.facebook.com/groups/UCIClass2017/', 
 	# 'Class 2020': 'https://www.facebook.com/groups/1168755996483730/'
 	}
+
 group_message = "Testing using find_element_by_tag_name not ID.Selenium is easy."
 
+counter = 0
 
+def find_text_box(driver):
+	'''
+	Checks if the textbox is located, else return False
+	'''
+	element = driver.find_element_by_tag_name("textarea")
+	if element:
+		return element
+	else:
+		return False
+		
+		
 def facebook_login():
 	'''
 	Function sends the driver to Fackbook and allows the user to login
@@ -64,9 +77,10 @@ def regular_group_post(group_url: str):
 	'''
 	driver.get(group_url)
 	
-	post_to_box(group_message)
+	post_to_regular_box(group_message)
 
 def buy_sell_group_post(group_url: str):
+	#error here!
 	'''
 	Function sends the driver to the Facebook group 
 	and allows the user to post his message
@@ -76,34 +90,60 @@ def buy_sell_group_post(group_url: str):
 	#Select the correct icon to choose
 	click_start_discussion = driver.find_element_by_xpath("//*[@data-tooltip-content='Start Discussion']")
 	click_start_discussion.click()
-	
-	post_to_box(group_message)
+	time.sleep(3)
+	post_to_buy_box(group_message)
 
-def post_to_box(post_info: str):
+def post_to_regular_box(post_info: str):
 	'''
 	Function accesses the post box and sends the information
 	'''
 	#Selects the textbox within the group and sends the text
-	# time.sleep(3)
-	post_box=driver.find_element_by_tag_name("textarea")
+	#post_box= WebDriverWait(driver, 10).until(find_text_box) 
+	post_box = driver.find_element_by_tag_name("textarea")
+	
 	# post_box = driver.find_element_by_xpath("//*[@role='combobox']")
 	post_box.click()
 	post_box.send_keys(post_info)
 
 	#Timer is needed to give the browser time to respond to the input
-	time.sleep(3)
+	#time.sleep(3)
 
 	#Finds the Post button and clicks it
+	post_it = driver.find_element_by_xpath("//*[@data-testid='react-composer-post-button']")
+	post_it.click()
+	post_it.click()
+	time.sleep(3)
+	
+def post_to_buy_box(post_info: str):
+	'''
+	Function accesses the post box and sends the information
+	'''
+	# Selects the textbox within the group and sends the text
+	time.sleep(3)
+	# post_box=driver.find_element_by_tag_name("textarea")
+	post_box = driver.find_element_by_xpath("//*[@contenteditable='true']")
+	post_box.click()
+	post_box.click()
+	post_box.send_keys(post_info)
+
+	# Timer is needed to give the browser time to respond to the input
+	#time.sleep(3)
+
+	# Finds the Post button and clicks it
 	post_it = driver.find_element_by_xpath("//*[@data-testid='react-composer-post-button']")
 	post_it.click()
 	time.sleep(3)
 	
 if __name__ == "__main__":
 	facebook_login()
-	regular_group_post("https://www.facebook.com/groups/990520237699874/")
-	regular_group_post("https://www.facebook.com/groups/990520237699874/")
-
-	# buy_sell_group_post("https://www.facebook.com/groups/581264068726629")
+	#regular_group_post("https://www.facebook.com/groups/990520237699874/")
+	#regular_group_post("https://www.facebook.com/groups/990520237699874/")
+	while True:
+		buy_sell_group_post("https://www.facebook.com/groups/581264068726629")
+		regular_group_post("https://www.facebook.com/groups/990520237699874/")
+		counter += 1
+		print(counter)
+	
 	# print(facebook_groups.items())
 	# for name,url in facebook_groups.items():
 		# try:
