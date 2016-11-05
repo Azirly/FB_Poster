@@ -1,0 +1,1 @@
+Testing using find_element_by_tag_name not ID.Selenium is easy.

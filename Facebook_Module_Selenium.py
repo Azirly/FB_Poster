@@ -1,5 +1,5 @@
 #Current Date
-#11/4/2016
+#11/5/2016
 import time
 import os
 from selenium import webdriver
@@ -39,8 +39,11 @@ facebook_groups = {
 	# 'Class 2020': 'https://www.facebook.com/groups/1168755996483730/'
 	}
 
-group_message = "Testing using find_element_by_tag_name not ID.Selenium is easy."
+text_file = open('message_to_send.txt', 'r')
+group_message = text_file.read().replace("\n","")
 
+#Test variables
+#group_message = "Testing using find_element_by_tag_name not ID.Selenium is easy."
 counter = 0
 
 

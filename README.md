@@ -62,7 +62,6 @@ Will now ignore using Facebook API from now on.
 Current Version: 6/11/2016
 Using Facebook API:
 
--Finish up program so that it only posts to open groups.
--Groups that have privacy = "closed" will not allow me to
-post on their groups, meaning that I have to find another
-way to multi-post to groups
+	Current Progress:
+		-Finish up program so that it only posts to open groups.
+		-Groups that have privacy = "closed" will not allow me to post on their groups, meaning that I have to find another way to multi-post to groups
