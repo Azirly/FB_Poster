@@ -43,6 +43,8 @@ group_message = "Testing using find_element_by_tag_name not ID.Selenium is easy.
 
 counter = 0
 
+
+#the Find functions are used for the WebDriverWait function.
 def find_text_box(driver):
 	'''
 	Checks if the textbox is located, else return False
@@ -52,7 +54,18 @@ def find_text_box(driver):
 		return element
 	else:
 		return False
+
+def find_buy_box(driver):
+	'''
+	Checks if the textbox is located, else return False
+	'''
+	element = driver.find_element_by_xpath("//*[@contenteditable='true']")
+	if element:
+		return element
+	else:
+		return False
 		
+
 		
 def facebook_login():
 	'''
@@ -87,58 +100,48 @@ def buy_sell_group_post(group_url: str):
 	'''
 	driver.get(group_url)
 
-	#Select the correct icon to choose
+	## Select the correct icon to choose
 	click_start_discussion = driver.find_element_by_xpath("//*[@data-tooltip-content='Start Discussion']")
 	click_start_discussion.click()
-	time.sleep(3)
 	post_to_buy_box(group_message)
 
 def post_to_regular_box(post_info: str):
 	'''
 	Function accesses the post box and sends the information
 	'''
-	#Selects the textbox within the group and sends the text
-	#post_box= WebDriverWait(driver, 10).until(find_text_box) 
+	## Selects the textbox within the group and sends the text 
 	post_box = driver.find_element_by_tag_name("textarea")
 	
-	# post_box = driver.find_element_by_xpath("//*[@role='combobox']")
 	post_box.click()
 	post_box.send_keys(post_info)
 
-	#Timer is needed to give the browser time to respond to the input
-	#time.sleep(3)
-
-	#Finds the Post button and clicks it
+	## Finds the Post button and clicks it
 	post_it = driver.find_element_by_xpath("//*[@data-testid='react-composer-post-button']")
-	post_it.click()
 	post_it.click()
 	time.sleep(3)
 	
+
 def post_to_buy_box(post_info: str):
 	'''
 	Function accesses the post box and sends the information
 	'''
-	# Selects the textbox within the group and sends the text
-	time.sleep(3)
-	# post_box=driver.find_element_by_tag_name("textarea")
-	post_box = driver.find_element_by_xpath("//*[@contenteditable='true']")
-	post_box.click()
+	## Selects the textbox within the group and sends the text
+
+	post_box= WebDriverWait(driver, 10).until(find_buy_box)
+	# post_box = driver.find_element_by_xpath("//*[@contenteditable='true']")
+	
 	post_box.click()
 	post_box.send_keys(post_info)
 
-	# Timer is needed to give the browser time to respond to the input
-	#time.sleep(3)
-
-	# Finds the Post button and clicks it
+	## Finds the Post button and clicks it
 	post_it = driver.find_element_by_xpath("//*[@data-testid='react-composer-post-button']")
 	post_it.click()
 	time.sleep(3)
 	
+
 if __name__ == "__main__":
 	facebook_login()
-	#regular_group_post("https://www.facebook.com/groups/990520237699874/")
-	#regular_group_post("https://www.facebook.com/groups/990520237699874/")
-	while True:
+	while (counter < 5):
 		buy_sell_group_post("https://www.facebook.com/groups/581264068726629")
 		regular_group_post("https://www.facebook.com/groups/990520237699874/")
 		counter += 1
