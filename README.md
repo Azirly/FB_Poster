@@ -3,6 +3,17 @@ Goal Of FB_Poster:
 --If the user has access to a FB group, then he should be 
 able to automatically post to the group at his own convenience.
 
+Current Version 11/05/2016
+Using Selenium:
+
+	Good:
+		-Send texts through the text file "messages_to_send.txt"
+		
+	Still need:
+		-Make it portable
+		-Yet to do a full-scale test.
+		
+
 Current Version 11/04/2016
 Using Selenium:
 

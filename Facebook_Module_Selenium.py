@@ -20,23 +20,23 @@ driver = webdriver.Chrome(executable_path=r"C:\Users\Juston\Documents\Computer L
 facebook_groups = {
 	'My Test Group' : "https://www.facebook.com/groups/990520237699874/",
 	'Buy Sell Group' : "https://www.facebook.com/groups/581264068726629"
-	# 'WICS': 'https://www.facebook.com/groups/women.in.ics/',
-	# 'IEEE': 'https://www.facebook.com/groups/353086428076607/',
-    # 'BIM': 'https://www.facebook.com/groups/353033718081878/',
-    # 'SWE': 'https://www.facebook.com/groups/2200130987/',
-    # 'DATspace': 'https://www.facebook.com/groups/datspace/', 
-    # 'ICS': ' https://www.facebook.com/groups/353008418084408/',
-    # 'CS': 'https://www.facebook.com/groups/352925081426075/',
-    # 'ICSSC': 'https://www.facebook.com/groups/323935841652/',
-    # 'ACM': 'https://www.facebook.com/groups/acmuci/',
-    # 'VGDC': 'https://www.facebook.com/groups/vgdcuci/',         
-    # 'UCI Hackers': 'https://www.facebook.com/groups/HackAtUCI/', 
-    # 'IN4MATX ': 'https://www.facebook.com/groups/353047451413838/',
-    # 'UCI AppDev': 'https://www.facebook.com/groups/804525909598967/', 
-    # 'Class 2019': 'https://www.facebook.com/groups/uciclassof2019/', 
-    # 'Class 2018': 'https://www.facebook.com/groups/2018UCI/', 
-    # 'Class 2017': 'https://www.facebook.com/groups/UCIClass2017/', 
-	# 'Class 2020': 'https://www.facebook.com/groups/1168755996483730/'
+	'WICS': 'https://www.facebook.com/groups/women.in.ics/',
+	'IEEE': 'https://www.facebook.com/groups/353086428076607/',
+    'BIM': 'https://www.facebook.com/groups/353033718081878/',
+    'SWE': 'https://www.facebook.com/groups/2200130987/',
+    'DATspace': 'https://www.facebook.com/groups/datspace/', 
+    'ICS': ' https://www.facebook.com/groups/353008418084408/',
+    'CS': 'https://www.facebook.com/groups/352925081426075/',
+    'ICSSC': 'https://www.facebook.com/groups/323935841652/',
+    'ACM': 'https://www.facebook.com/groups/acmuci/',
+    'VGDC': 'https://www.facebook.com/groups/vgdcuci/',         
+    'UCI Hackers': 'https://www.facebook.com/groups/HackAtUCI/', 
+    'IN4MATX ': 'https://www.facebook.com/groups/353047451413838/',
+    'UCI AppDev': 'https://www.facebook.com/groups/804525909598967/', 
+    'Class 2019': 'https://www.facebook.com/groups/uciclassof2019/', 
+    'Class 2018': 'https://www.facebook.com/groups/2018UCI/', 
+    'Class 2017': 'https://www.facebook.com/groups/UCIClass2017/', 
+	'Class 2020': 'https://www.facebook.com/groups/1168755996483730/'
 	}
 
 text_file = open('message_to_send.txt', 'r')
@@ -144,18 +144,18 @@ def post_to_buy_box(post_info: str):
 
 if __name__ == "__main__":
 	facebook_login()
-	while (counter < 5):
-		buy_sell_group_post("https://www.facebook.com/groups/581264068726629")
-		regular_group_post("https://www.facebook.com/groups/990520237699874/")
-		counter += 1
-		print(counter)
+	# while (counter < 5):
+		# buy_sell_group_post("https://www.facebook.com/groups/581264068726629")
+		# regular_group_post("https://www.facebook.com/groups/990520237699874/")
+		# counter += 1
+		# print(counter)
 	
 	# print(facebook_groups.items())
-	# for name,url in facebook_groups.items():
-		# try:
-			# regular_group_post(url)
-		# except: #selenium.common.exceptions.NoSuchElementException:
-			# buy_sell_group_post(url)
+	for name,url in facebook_groups.items():
+		try:
+			regular_group_post(url)
+		except: #selenium.common.exceptions.NoSuchElementException:
+			buy_sell_group_post(url)
 			
 
 	
